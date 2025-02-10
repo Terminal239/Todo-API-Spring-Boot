@@ -1,6 +1,8 @@
 package com.terminal.todo_application.model;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 
 @Entity
 @Table(name = "App_User")
@@ -9,6 +11,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
+
+    @OneToMany(mappedBy = "user")
+    private List<Todo> todos;
 
     public User() {
 
