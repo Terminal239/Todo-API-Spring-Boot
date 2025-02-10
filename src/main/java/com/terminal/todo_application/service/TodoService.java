@@ -53,9 +53,7 @@ public class TodoService {
     public Todo toggleCompletion(Long id) {
         Todo todo = todoRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Todo not found with id: " + id));
-        System.out.println(todo);
         todo.setCompleted(!todo.isCompleted());
-        System.out.println(todo);
         return todoRepository.save(todo);
     }
 }

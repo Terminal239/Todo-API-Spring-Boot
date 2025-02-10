@@ -1,5 +1,5 @@
 INSERT INTO Todo (title, completed) VALUES ( 'Grocery Shopping', FALSE);
-INSERT INTO Todo (title, completed) VALUES ('Book Doctor Appointment', TRUE);
+INSERT INTO Todo (title, completed) VALUES ( 'Book Doctor Appointment', TRUE);
 INSERT INTO Todo (title, completed) VALUES ( 'Pay Bills', FALSE);
 INSERT INTO Todo (title, completed) VALUES ( 'Walk the Dog', TRUE);
 INSERT INTO Todo (title, completed) VALUES ( 'Clean the House', FALSE);

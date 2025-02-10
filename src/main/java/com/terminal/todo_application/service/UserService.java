@@ -1,11 +1,14 @@
 package com.terminal.todo_application.service;
 
 import com.terminal.todo_application.exceptions.ResourceNotFoundException;
+import com.terminal.todo_application.model.Todo;
 import com.terminal.todo_application.model.User;
 import com.terminal.todo_application.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -44,5 +47,11 @@ public class UserService {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
         userRepository.delete(user);
+    }
+
+    public List<Todo> findTodosByUserId(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+        return user.getTodos();
     }
 }

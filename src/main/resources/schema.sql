@@ -1,7 +1,8 @@
 create table App_User
 (
     id       INT primary key auto_increment,
-    username varchar(32)
+    username varchar(32),
+    email varchar(32)
 );
 
 create table Todo

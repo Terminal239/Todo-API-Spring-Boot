@@ -22,9 +22,10 @@ public class Todo {
         this.completed = updated.isCompleted();
     }
 
-    public Todo(String title, boolean completed) {
+    public Todo(String title, boolean completed, User user) {
         this.title = title;
         this.completed = completed;
+        this.user = user;
     }
 
     public Long getId() {
@@ -45,6 +46,10 @@ public class Todo {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     @Override

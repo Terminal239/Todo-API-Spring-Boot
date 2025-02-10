@@ -1,5 +1,6 @@
 package com.terminal.todo_application.controller;
 
+import com.terminal.todo_application.model.Todo;
 import com.terminal.todo_application.model.User;
 import com.terminal.todo_application.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/users")
 public class UserController {
 
     private final UserService userService;
@@ -22,7 +25,6 @@ public class UserController {
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public User createUser(@Validated @RequestBody User user) {
-        System.out.println("POST CALLED");
         return userService.createUser(user);
     }
 
@@ -36,6 +38,12 @@ public class UserController {
             return ResponseEntity.notFound().build();
 
         return ResponseEntity.ok(user);
+    }
+
+    @GetMapping("/{id}/todos")
+    public ResponseEntity<List<Todo>> findTodosByUserId(@PathVariable Long id) {
+        List<Todo> todos = userService.findTodosByUserId(id);
+        return ResponseEntity.ok(todos);
     }
 
     @GetMapping("/{id}")
