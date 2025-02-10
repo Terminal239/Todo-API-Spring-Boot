@@ -25,3 +25,5 @@ INSERT INTO Todo (title, completed) VALUES ( 'Update Resume', FALSE);
 INSERT INTO Todo (title, completed) VALUES ( 'Mow the Lawn', FALSE);
 INSERT INTO Todo (title, completed) VALUES ( 'Schedule Dentist', FALSE);
 INSERT INTO Todo (title, completed) VALUES ( 'Prepare Presentation', FALSE);
+
+insert into APP_USER (USERNAME) values ( 'John Smith' )
